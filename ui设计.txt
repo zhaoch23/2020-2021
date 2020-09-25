@@ -1,0 +1,104 @@
+main.py: 运行程序，UI
+    Option：选项对象，服务于Ui中的选项
+        包含名字（name，事件（event，序号（index等属性以及方法trigger触发
+        调用trigger方法来激活event并赋予该选项的属性
+
+    Clint：
+        __init__:
+            创建一个markbook对象（从markbook——.py
+
+        一些功能性的小方法：
+            打印title，打印header，打印viod line，获取input，获取确认（从user
+
+        set_up:
+            call markbook对象中的set up，运行第一个menu页面（view_all_classroom
+        
+
+        #每次打开页面都会重新运行函数
+    完成 函数1:普通页面-所有的教室  #普通页面是指一个查看信息的页面 这是一个例子，其他普通页面同样适用
+            该页面可以索引到：查看教室，创建新教室，退出 等页面
+            model部分：获得markbook中json解码的教室
+                    将所有用到的索引（所有教室，创建新教室等。。）打包成option对象
+                        赋予其在本页面不重复的标号以及赋予其函数（例：创建教室赋予函数2）
+                        加入一个list
+
+            view部分：打印所有教室
+                    打印所有options（带有model部分赋予的编号
+
+            contorller部分：根据用户输入序号（在之前对索引的编号）call option的事件（进入下一个函数
+        
+    完成 函数2:创建页面-创建新教室
+            该页面可以索引到：回到上一页面（函数1
+            view部分：打印所有创建教室的属性
+
+            controller部分：user输入属性调用markbook中创建新教室的函数，返回上一页面
+        
+        函数3:普通界面-查看教室
+            该页面可以索引到：回到上一界面（函数1，查看所有学生，查看所有作业，修改教室，删除教室
+            与函数1类似
+            model：获得教室的属性并将所有索引打包成option放入list
+
+            view：打印教室属性，学生，作业（笼统
+
+            controller：根据user输入进入索引
+        
+        函数4: 修改界面-修改教室
+            该页面可以索引到：回到上一界面（函数3
+            view：打印教室属性
+            基本与函数2相同不同的是不是新加，而是update
+        
+        函数5:  删除界面-删除教室
+            该页面可以索引到：回到上一界面（函数3，回到函数1
+                向用户确认后删除
+        
+        函数5:普通界面-查看所有学生
+        该页面可以索引到：回到上一界面（函数3，查看学生，添加学生
+
+        函数6: 创建界面-添加学生
+        该页面可以索引到：回到上一界面（函数5
+        与创建教室相同
+
+        函数7: 普通界面-查看学生
+        该页面可以索引到：回到上一界面（函数5， 删除学生，修改学生资料，修改学生分数，添加评论，打印report card
+
+        函数n：普通页面-查看所有作业
+        该页面可以索引到：回到上一界面（函数3， 查看作业，添加作业
+
+        函数n+2: 普通界面-查看作业
+        该页面可以索引到：回到上一界面（函数n， 删除作业，修改作业资料，打印assignment report，修改每个学生的作业
+
+        函数n+3: 修改界面-修改学生作业分数
+        该页面可以索引到：回到上一界面（函数n+2
+        为每个学生该作业的分数修改
+
+all_classroom:[
+    enter this classroom:[
+        all students:[
+            see this student profile:[
+                edit this student's profile,
+                edit this student's marks,
+                add a comment,
+                print report card,
+                remove this student
+            ],
+            add a student
+        ],
+        all assignments:[
+            see this assignment's detials:[
+                edit this assignment's detials,
+                edit this assignment's marks for everyone joins this assignment,
+                print assignment report,
+                remove this assignment
+            ],
+            add a assignment
+        ],
+        edit this classroom,
+        remove this classroom
+    ],
+    add a classroom
+]
+
+
+
+
+        

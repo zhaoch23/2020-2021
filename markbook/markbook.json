@@ -6,17 +6,28 @@
         "teacher_name": "Mr.Gallo",
         "student_list": [
             {
-                "first_name": "a",
-                "lastname": "",
-                "gender": "",
-                "image": "",
-                "student_nnumber": null,
-                "grade": null,
-                "email": "",
-                "marks": [],
+                "first_name": "Chengzong",
+                "lastname": "Zhao",
+                "gender": "Male",
+                "image": null,
+                "student_nnumber": 1138296,
+                "grade": 12,
+                "email": "chengzong.zhao21@ycdsbk12.ca",
+                "marks": [
+                    {
+                        "assignment_name": "Markbook",
+                        "marks": 100
+                    }
+                ],
                 "comments": ""
             }
         ],
-        "assignments_list": []
+        "assignments_list": [
+            {
+                "assignment_name": "Markbook",
+                "due": "Sept 28",
+                "points": 100
+            }
+        ]
     }
 ]
