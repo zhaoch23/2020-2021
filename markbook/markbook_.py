@@ -1,3 +1,6 @@
+'''Markbook object
+'''
+
 import json
 import statistics
 import os
@@ -6,13 +9,22 @@ from fastcode import *
 
 
 class Markbook(object):
-    '''
+    '''Marbook object, involves self.classroom_list, save all things in this object
     '''
 
     def __init__(self):
         self.classroom_list = []#To save all informations in this list
 
+
+    def set_up(self):
+        '''set up everything
+        '''
         self.read_file()
+
+    def close(self):
+        '''When object closes
+        '''
+        self.write_file()
 
     #file methods: read file, write file, empty file
     def read_file(self):
@@ -20,7 +32,7 @@ class Markbook(object):
         '''
         try:
             f = open('markbook.json', 'r')
-            self.classroom_list = json.loads(f)
+            self.classroom_list = json.loads(f.read())
             f.close()
         except:
             print('Storage file missing')
@@ -29,7 +41,7 @@ class Markbook(object):
         '''Write the informations of classroom_list into json file
         '''
         f = open('markbook.json', 'w')
-        f.write(json.dump(self.classroom_list))
+        f.write(json.dumps(self.classroom_list))
         f.close()
         
     def empty_file(self):
@@ -46,7 +58,7 @@ class Markbook(object):
         '''To create a classroom dictionary(default empty):
         Args:
             course_code='': course code
-            course_namer='': course name
+            course_name='': course name
             period=None: period
             teacher_name='': teacher's name
             student_listt=[]: A list of students
@@ -112,7 +124,7 @@ class Markbook(object):
         '''Remove a classroom from list
         '''
         if classroom in self.classroom_list:
-            del classroom
+            self.classroom_list.remove(classroom)
 
     
     #Assignment methods, create assignment, get informations from assignment, edit assignment, delete assignment
@@ -128,7 +140,7 @@ class Markbook(object):
             A dictionary object that contents all args upon
         '''
         assignmnet = {
-            NAME: name,
+            ASSIGNMENT_NAME: name,
             DUE: due,
             POINTS: points
         }
@@ -203,8 +215,8 @@ class Markbook(object):
             for student in classroom[STUDENT_LIST]:
                 for assignment_ in student[MARKS]:
                     if assignment_[ASSIGNMENT_NAME] == assignment[ASSIGNMENT_NAME]:
-                        del assignment_
-            del assignment
+                        student[MARKS].remove(assignment_)
+            classroom[ASSIGNMENTS_LIST].remove(assignment)
 
     #student methods, add students, get informations from a student, edit student, remove student, print reports
     def add_student(self, classroom, first_name: str='', last_name: str='',
@@ -296,7 +308,7 @@ class Markbook(object):
         '''
         for a in student[MARKS]:
             if a[ASSIGNMENT_NAME] == assignment[ASSIGNMENT_NAME]:
-                del a
+                student[MARKS].remove(a)
     
     def add_student_comments(self, student: dict=None, comment: str='') -> str:
         '''add a report card comment
@@ -310,27 +322,5 @@ class Markbook(object):
         '''remove a student
         '''
         if student in classroom[STUDENT_LIST]:
-            del student
-    
+            classroom[STUDENT_LIST].remove(student)
 
-
-class Client(Markbook):
-    '''
-    '''
-
-    def __init__(self):
-        super().__init__()
-
-
-
-
-
-
-'''
-if __name__ == "__main__":
-    path = os.path.abspath(os.path.dirname(__file__))
-    os.chdir(path)
-
-    client = Client()
-    client.run()
-'''

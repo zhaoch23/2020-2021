@@ -17,3 +17,12 @@ EMAIL = 'email'
 MARKS = 'marks'
 COMMENTS = 'comments'
 ASSIGNMENT_NAME = 'assignment_name'
+
+
+#Dict Attributes
+CLASSROOM_ATTRIBUTES = {
+            COURSE_CODE: '',
+            COURSE_NAME: '',
+            PERIOD: 0,
+            TEACHER_NAME: ''
+        }
