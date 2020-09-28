@@ -8,10 +8,10 @@ NAME = 'name'
 DUE = 'due'
 POINTS = 'points'
 FIRST_NAME = 'first_name'
-LAST_NAME = 'lastname'
+LAST_NAME = 'last_name'
 GENDER = 'gender'
 IMAGE = 'image'
-STUDENT_NUMBER = 'student_nnumber'
+STUDENT_NUMBER = 'student_number'
 GRADE = 'grade'
 EMAIL = 'email'
 MARKS = 'marks'
@@ -26,3 +26,18 @@ CLASSROOM_ATTRIBUTES = {
             PERIOD: 0,
             TEACHER_NAME: ''
         }
+
+STUDENT_ATTRIBUTES = {
+    FIRST_NAME: '',
+    LAST_NAME: '',
+    GENDER: '',
+    IMAGE: '',
+    STUDENT_NUMBER: -1,
+    GRADE: -1,
+    EMAIL: ''
+}
+
+ASSIGNMENTS_ATTRIBUTES = {
+    ASSIGNMENT_NAME: '',
+    MARKS: ''
+}

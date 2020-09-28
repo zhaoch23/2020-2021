@@ -112,12 +112,12 @@ class Markbook(object):
 
 
     #Methods to edit a classroom
-    def update_classroom(self, classroom: dict, *kwargs) -> dict:
+    def update_classroom(self, classroom: dict, **kwargs: dict) -> dict:
         '''update everything in the classroom with given key word args
             Return -> dict:
             the dict updated
         '''
-        classroom.update(*kwargs)
+        classroom.update(**kwargs)
         return classroom
 
     def del_classroom(self, classroom: dict):
@@ -199,6 +199,20 @@ class Markbook(object):
             
         return [statistics.mean(temp_mark_list), statistics.median(temp_mark_list)]
   
+    def get_all_assignment_average_median(self, classroom: dict) -> list:
+        '''get final mark average and median of class
+        Returns -> list:
+            A list contents class average and class median
+            example: [90, 85]
+        '''
+        templist = [[],[]]
+        for ass in classroom[ASSIGNMENTS_LIST]:
+            list_ = self.get_assignment_average_median(classroom, ass)
+            templist[0].append(list_[0])
+            templist[1].append(list_[1])        
+        return [statistics.mean(templist[0]), statistics.median(templist[1])]
+
+
     #Methods to edit an assignment
     def update_assignment(self, assignment: dict, **kwargs) -> dict:
         '''update everything in the classroom with given key word args
@@ -265,18 +279,25 @@ class Markbook(object):
             A list that contents lists of assignment detials that content assignment name, marks, class average and median
             example: [['first test', 100, 100, 100], ['second test', 100, 100, 100]]
         '''
+        list_ = []
         temp_list = []
         for assignment in student[MARKS]:
             for assignment_ in classroom[ASSIGNMENTS_LIST]:
                 if assignment[ASSIGNMENT_NAME] == assignment[ASSIGNMENT_NAME]:
-                    stat = self.get_assignment_average_median(classroom, assignment_)
-                    temp_list = assignment.values()
-                    temp_list.append(stat[0])
-                    temp_list.append(stat[1])
-                 
-        return temp_list
+                    exist = True
+                else:
+                    exist = False
+            if exist == True:
+                stat = self.get_assignment_average_median(classroom, assignment_)
+                temp_list = list(assignment.values())
+                temp_list.append(stat[0])
+                temp_list.append(stat[1])
+                list_.append(temp_list)
+                temp_list = []
+
+        return list_
         
-    def get_student_average(self, classroom, student) -> float:
+    def get_student_average(self, classroom: dict, student: dict) -> float:
         '''get the student average mark
         Returns -> float:
             student's average mark of all assignment

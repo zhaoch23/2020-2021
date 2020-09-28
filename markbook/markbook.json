@@ -2,21 +2,45 @@
     {
         "course_code": "ICS4U",
         "course_name": "G12 Computer Science",
-        "period": 2,
+        "period": "2",
         "teacher_name": "Mr.Gallo",
         "student_list": [
             {
                 "first_name": "Chengzong",
-                "lastname": "Zhao",
+                "last_name": "Zhao",
                 "gender": "Male",
                 "image": null,
-                "student_nnumber": 1138296,
+                "student_number": 1138296,
                 "grade": 12,
                 "email": "chengzong.zhao21@ycdsbk12.ca",
                 "marks": [
                     {
                         "assignment_name": "Markbook",
                         "marks": 100
+                    },
+                    {
+                        "assignment_name": "Test 1",
+                        "marks": 94
+                    }
+                ],
+                "comments": ""
+            },
+            {
+                "first_name": "Yingchen",
+                "last_name": "Ma",
+                "gender": "Female",
+                "image": null,
+                "student_number": "1140524",
+                "grade": "13",
+                "email": "",
+                "marks": [
+                    {
+                        "assignment_name": "Markbook",
+                        "marks": 85
+                    },
+                    {
+                        "assignment_name": "Test 1",
+                        "marks": 88
                     }
                 ],
                 "comments": ""
@@ -26,6 +50,11 @@
             {
                 "assignment_name": "Markbook",
                 "due": "Sept 28",
+                "points": 100
+            },
+            {
+                "assignment_name": "Test 1",
+                "due": "Sept 31",
                 "points": 100
             }
         ]
