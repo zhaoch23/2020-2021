@@ -10,7 +10,7 @@
                 "last_name": "Zhao",
                 "gender": "Male",
                 "image": null,
-                "student_number": 1138296,
+                "student_number": 1314520,
                 "grade": 12,
                 "email": "chengzong.zhao21@ycdsbk12.ca",
                 "marks": [
@@ -26,10 +26,30 @@
                 "comments": ""
             },
             {
+                "first_name": "Duoyang",
+                "last_name": "Xi",
+                "gender": "Male",
+                "image": "",
+                "student_number": "5201314",
+                "grade": "12",
+                "email": "",
+                "marks": [
+                    {
+                        "assignment_name": "Markbook",
+                        "marks": 100
+                    },
+                    {
+                        "assignment_name": "Test 1",
+                        "marks": 99.9
+                    }
+                ],
+                "comments": ""
+            },
+            {
                 "first_name": "Yingchen",
                 "last_name": "Ma",
                 "gender": "Female",
-                "image": null,
+                "image": "",
                 "student_number": "1140524",
                 "grade": "13",
                 "email": "",
