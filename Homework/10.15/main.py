@@ -1,4 +1,5 @@
 from typing import List
+import os
 import statistics
 import copy
 
@@ -58,20 +59,19 @@ def linear_search_4(list: List[Student], target: str) -> Student:
             return list[i]
 
 def linear_search_5(list: List[int]) -> List:
-    orginal_list = copy.copy(list)
-    list_ = []
-    i = len(list) - 1
-    while i >= 0:
+    temp_list = []
+    temp_list_ = []
+    for i in range(len(list)):
         if list[i] >= 50:
-            list_.append(list[i])
-            del list[i]
-        i -= 1
+            temp_list.append(list[i])
+        else:
+            temp_list_.append(list[i])
     
-    sum_ = sum(list)
+    sum_ = sum(temp_list_)
     if sum_%2 == 0:
-        return list_
+        return temp_list
     else:
-        return orginal_list
+        return list
 
 
 
@@ -91,6 +91,12 @@ def bubble_sort_2(list: List[Student]) -> List:
 
     return list          
 
+
+if __name__ == "__main__":
+    path = os.path.abspath(os.path.dirname(__file__))
+    os.chdir(path)
+
+    os.system('pytest test_main.py')
 
 
             
