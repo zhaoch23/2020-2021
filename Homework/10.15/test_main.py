@@ -31,10 +31,10 @@ def test_2():
 
 def test_3():
     list = ['4565324', '9074y', 'y64850335y0', 'y9469817']
-    string = 'y94'
-    assert linear_search_3(list, string)
-    string = '9'
-    assert linear_search_3(list, string)
+    string = '4565324'
+    assert linear_search_3(list, string) == ['4565324', '9074y', 'y64850335y0', 'y9469817']
+    string = '9074y'
+    assert linear_search_3(list, string) == ['9074y', '4565324', 'y64850335y0', 'y9469817']
 
 def test_4():
     assert linear_search_4(classroom, 'kn') == knox

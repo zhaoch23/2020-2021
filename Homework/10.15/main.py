@@ -37,13 +37,15 @@ def linear_search_3(list: List[str], target: str) -> List:
     i = len(list) - 1
     while i >= 0:
         for j in range(len(target)):
-            if len(list[i]) <= len(target) and list[i][j] != target[j]:
+            if len(list[i]) == len(target) and list[i][j] == target[j]:
+                string = list[i]
                 del list[i]
-                break
+                list.insert(0, string)
+                return list
 
         i -= 1
     
-    return list
+
 
 
 def linear_search_4(list: List[Student], target: str) -> Student:
