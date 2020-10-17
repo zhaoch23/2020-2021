@@ -22,6 +22,9 @@ def test_1():
     num = [3,2,3,9,5,3,7,9,2]
     assert linear_search_1(num, 7) == 6
 
+    num = [7,1,6,8,9,5]
+    assert linear_search_1(num, 2) == -1
+
 def test_2():
     num = [10, 20, 30, 40, 50, 60, 70, 60, 50, 40]
     assert linear_search_2(num, 40) == [50, 60, 70, 60, 50]
@@ -55,4 +58,3 @@ def test_6():
 
 def test_7():
     assert bubble_sort_2(classroom) == [ares, knox, res, crynn, ryatt]
-

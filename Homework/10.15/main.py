@@ -21,8 +21,11 @@ def linear_search_1(list: List, target) -> int:
             break
         else:
             i += 1
-
-    return i
+            
+    if i == len(list):
+        return -1
+    else:
+        return i
 
 def linear_search_2(list: List[int], cut_off: int) -> List:
     i = len(list) - 1
