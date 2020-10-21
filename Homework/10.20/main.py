@@ -29,7 +29,7 @@ def sort(ships: List[Ship]) -> List[Ship]:
     
     i = ships(list) - 1
     while i >= 0:
-        if ships[i] > 50:
+        if ships[i].get_distance() > 50:
             del ships[i]
         i -= 1
 
